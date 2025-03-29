@@ -1,0 +1,63 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 15px;
+    font-weight: 900;  /* This is the maximum thickness */
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+#workspaces button.active {
+    color: #ff79c6;
+}
+
+#custom-launcher {
+    color: #50fa7b;
+}
+
+#window {
+    color: #8be9fd;
+}
+
+#clock {
+    color: #ff79c6;
+}
+
+#cpu {
+    color: #50fa7b;
+}
+
+#memory {
+    color: #ff5555;
+}
+
+#pulseaudio {
+    color: #f1fa8c;
+}
+
+#network {
+    color: #bd93f9;
+}
+
+#battery {
+    color: #8be9fd;
+}
+
+#battery.charging, #battery.plugged {
+    color: #50fa7b;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff5555;
+}
+
+#tray {
+    color: #f8f8f2;
+}
