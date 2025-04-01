@@ -19,7 +19,6 @@ configuration {
 /*	cache-dir: ;*/
 	steal-focus: false;
 /*	dpi: -1;*/
-	@theme rounded-purple-dark
 
 	/*---------- Matching setting ----------*/
 	matching: "normal";

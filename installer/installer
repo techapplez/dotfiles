@@ -1,5 +1,6 @@
-sudo pacman -S hyprland hyprshot rofi-wayland waybar hyprlock hyprpaper uwufetch zsh --noconfirm --needed
+sudo pacman -S hyprland rofi-wayland waybar hyprlock hyprpaper uwufetch zsh --noconfirm --needed
 cp ~/dotfiles/* ~/.config/ -fr
+rm -rf ~/.zshrc
 echo "source ~/.config/zsh/.zshrc" >> ~/.zshrc 
 mkdir -p ~/.local/share/rofi/themes/
 cp ~/.config/rofi/rounded-purple-dark.rasi ~/.config/rofi/rounded-common.rasi ~/.local/share/rofi/themes/

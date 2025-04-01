@@ -3,74 +3,61 @@
     "position": "top",
     "height": 30,
     "spacing": 4,
-    "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["swaytray" ,"cpu", "memory", "pulseaudio", "network", "battery", "tray"],
-
-    "custom/launcher": {
-        "format": "",
-        "on-click": "rofi -show drun",
-        "tooltip": false
-    },
+    "modules-right": ["custom/media","cpu","memory","pulseaudio","network","battery","tray"],
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
-        "format-icons": {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5"
-        },
+        "format-icons": {"1":"1","2":"2","3":"3","4":"4","5":"5"},
         "sort-by-number": true
     },
     "hyprland/window": {
         "max-length": 50,
         "separate-outputs": true
     },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "format-icons": {
+            "Playing": "",
+            "Paused": "",
+            "Stopped": ""
+        },
+        "return-type": "json",
+        "exec": "playerctl metadata --follow --format '{\"text\":\"{{artist}} - {{title}}\",\"alt\":\"{{status}}\"}'",
+        "escape": true,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous"
+    },
     "clock": {
         "format": "{:%H:%M}",
         "format-alt": "{:%Y-%m-%d}"
     },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
+    "cpu": {"format": " {usage}% ","tooltip": false},
+    "memory": {"format": " {}% "},
     "pulseaudio": {
         "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "󰓄",
+        "format-icons": {"headphone":"󰋋","hands-free":"󰜟","headset":"󰋎","phone":"","portable":"󰜟","car":"󰜟","default":["󰕿","󰖀","󰕾"]},
         "on-click": "pavucontrol"
     },
     "network": {
-        "format-wifi": "{essid} ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠"
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "format-disconnected": "⚠ Disconnected"
     },
     "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
+        "states": {"warning":30,"critical":15},
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-icons": ["", "", "", "", ""]
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󱘖 {capacity}%",
+        "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂"]
     },
     "tray": {
+        "format":"{icon}",
         "icon-size": 21,
         "spacing": 10
     }
-}
+    }
